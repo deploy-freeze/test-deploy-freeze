@@ -1,0 +1,23 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    environment: production
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Simulate deployment
+        run: |
+          echo "Deploying to production..."
+          sleep 5
+          echo "Deployment complete!"
+
+      - name: Deployment status
+        run: echo "Successfully deployed at $(date)"
